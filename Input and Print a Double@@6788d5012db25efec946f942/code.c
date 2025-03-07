@@ -4,10 +4,10 @@ int main() {
     double num;
 
     // Input a double-precision number
-    scanf("%.4lf", &num);
+    scanf("%lf", &num);
 
     // Print the entered number
-    printf("You entered: %lf\n", num);
+    printf("You entered: %.4lf\n", num);
 
     return 0;
 }
