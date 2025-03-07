@@ -3,13 +3,12 @@
 int main() {
     int number;
 
-    // Take an integer as input
-    printf("Enter an integer: ");
+    // Input the integer
     scanf("%d", &number);
 
-    // Print the number in hexadecimal and octal formats
-    printf("Hexadecimal: %X\n", number);  // %X prints uppercase hexadecimal
-    printf("Octal: %o\n", number);        // %o prints octal representation
+    // Print its hexadecimal and octal representations
+    printf("Hexadecimal: %X\n", number);  // %X for hexadecimal
+    printf("Octal: %o\n", number);        // %o for octal
 
     return 0;
 }
