@@ -1,26 +1,39 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int findIndex(int arr[], int n, int target) {
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == target) {
-            return i;
+int compare(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+
+int findLongestConsecutiveSequence(int arr[], int n) {
+    qsort(arr, n, sizeof(int), compare);
+
+    int longest = 1, current = 1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] == arr[i - 1]) {
+            continue;
+        }
+        if (arr[i] == arr[i - 1] + 1) {
+            current++;
+        } else {
+            longest = (current > longest) ? current : longest;
+            current = 1;
         }
     }
-    return -1;
+    return (current > longest) ? current : longest;
 }
 
 int main() {
-    int n, target;
+    int n;
     scanf("%d", &n);
 
     int arr[n];
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-    scanf("%d", &target);
 
-    int index = findIndex(arr, n, target);
-    printf("%d\n", index);
+    int result = findLongestConsecutiveSequence(arr, n);
+    printf("%d\n", result);
 
     return 0;
 }
